@@ -1,5 +1,3 @@
-// git push -u https://github.com/SigitasGrincevicius/photo-slider main
-
 let entities = [{
    imagePath: "../images/image-rostov-admiral-project.png",
    city: "Rostov-on-Don<br>LCD admiral",
