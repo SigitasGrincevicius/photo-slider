@@ -1,17 +1,17 @@
 let entities = [{
-   imagePath: "../images/image-rostov-admiral-project.png",
+   imagePath: "./images/image-rostov-admiral-project.png",
    city: "Rostov-on-Don<br>LCD admiral",
    area: "81 m2",
    repairTime: "3.5 months"
 },
 {
-   imagePath: "../images/image-sochi-project.png",
+   imagePath: "./images/image-sochi-project.png",
    city: "Sochi<br>Thieves",
    area: "105 m2",
    repairTime: "4 months",
 },
 {
-   imagePath: "../images/image-rostov-patriotic-project.png",
+   imagePath: "./images/image-rostov-patriotic-project.png",
    city: "Rostov-on-Don<br>Patriotic",
    area: "93 m2",
    repairTime: "3 months",
