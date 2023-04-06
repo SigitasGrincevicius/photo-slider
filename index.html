@@ -68,7 +68,7 @@
                </div>
             </div>
          </section>
-         <section class="projects">
+         <section class="projects" id="projects">
             <div class="project-description">
                <h2 class="project-title">Completed<br> projects</h2>
                <p class="project-text project-text_margin-bottom">Only a small part of the work performed by our company is presented on the site. For 14 years on in the construction
@@ -76,27 +76,27 @@
                <div class="project-details">
                   <div class="project-details__item">
                      <h4 class="project-details__title">City:</h4>
-                     <p class="project-details__description">Rostov-on-Don<br>
+                     <p class="project-details__desc project-details__desc-city">Rostov-on-Don<br>
                         LCD admiral</p>
                   </div>
                   <div class="project-details__item">
                      <h4 class="project-details__title">Apartment Area:</h4>
-                     <p class="project-details__description">81 m2</p>
+                     <p class="project-details__desc project-details__desc-area">81 m2</p>
                   </div>
                   <div class="project-details__item">
                      <h4 class="project-details__title">Repair Time:</h4>
-                     <p class="project-details__description">3.5 months</p>
+                     <p class="project-details__desc project-details__desc-time">3.5 months</p>
                   </div>
                   <div class="project-details__item">
                      <h4 class="project-details__title">Repair Cost:</h4>
-                     <p class="project-details__description">Upon request</p>
+                     <p class="project-details__desc">Upon request</p>
                   </div>
                </div>
                <div class="arrows">
                   <img class="arrows__left" src="./icons/back-arrow.svg" alt="Back arrow icon">
-                  <div class="arrows__dot arrows__dot_active"></div>
-                  <div class="arrows__dot arrows__dot_margin-right"></div>
-                  <div class="arrows__dot arrows__dot_margin-right"></div>
+                  <div class="arrows__dot arrows__dot_active" data-index="0"></div>
+                  <div class="arrows__dot arrows__dot_margin-right" data-index="1"></div>
+                  <div class="arrows__dot arrows__dot_margin-right" data-index="2"></div>
                   <img class="arrows__right" src="./icons/forward-arrow.svg" alt="Forward arrow icon">
                </div>
             </div>
@@ -104,22 +104,23 @@
                <nav class="projects__navigation projects__navigation_margin-bottom">
                   <ul>
                      <li class="projects__nav-item projects__nav-item_right-margin">
-                        <a class="projects__nav-link projects__nav-link_selected" href="#">Rostov-on-Don, Admiral</a>
+                        <a class="projects__nav-link projects__nav-link_active" href="#projects" data-index="0">Rostov-on-Don, Admiral</a>
                      </li>
                   </ul>
                   <ul>
                      <li class="projects__nav-item projects__nav-item_right-margin">
-                        <a class="projects__nav-link" href="#">Sochi Thieves</a>
+                        <a class="projects__nav-link" href="#projects" data-index="1">Sochi Thieves</a>
                      </li>
                   </ul>
                   <ul>
                      <li class="projects__nav-item">
-                        <a class="projects__nav-link" href="#">Rostov-on-Don Patriotic</a>
+                        <a class="projects__nav-link" href="#projects" data-index="2">Rostov-on-Don Patriotic</a>
                      </li>
                   </ul>
                </nav>
-               <div class="projects__image">
-                  <img src="./images/image-rostov-admiral-project.png" alt="Admiral project photo">
+               <div class="projects__image-container">
+                  <!-- <img src="./images/image-rostov-admiral-project.png" alt="Admiral project photo"> -->
+                  <!-- <div class="projects__image" style="background-image: url('./images/image-rostov-admiral-project.png')"></div> -->
                </div>
             </div>
             <div class="projects-online projects-online_margin-top">
