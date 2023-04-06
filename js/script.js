@@ -20,7 +20,7 @@ let entities = [{
 }
 ]
 
-function initEntity() {
+function initSlider() {
    if (!entities || !entities.length)
       return;
 
@@ -116,4 +116,4 @@ function initEntity() {
    initAnchorTags();
 }
 
-initEntity();
+initSlider();
