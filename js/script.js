@@ -17,8 +17,7 @@ let entities = [{
    city: "Rostov-on-Don<br>Patriotic",
    area: "93 m2",
    repairTime: "3 months",
-}
-]
+}];
 
 function initSlider() {
    if (!entities || !entities.length)
@@ -27,18 +26,7 @@ function initSlider() {
    let projectImages = document.querySelector(".projects__image-container");
    let leftArrow = document.querySelector(".arrows__left");
    let rightArrow = document.querySelector(".arrows__right");
-   let dots = document.querySelectorAll(".arrows__dot");
-
-   function getElementByClass(nodelist, className) {
-      for (let i = 0; i < nodelist.length; i++) {
-         const element = nodelist[i];
-         if (element.classList.contains(className)) {
-            return element;
-         }
-      }
-
-      return null;
-   }
+   let sliderDots = document.querySelector(".arrows__dots");
 
    function initImages() {
       entities.forEach((entity, index) => {
@@ -47,32 +35,34 @@ function initSlider() {
       })
    }
 
+   function initDots() {
+      entities.forEach((entity, index) => {
+         let dotDiv = `<div class="arrows__dot ${index === 0 ? 'arrows__dot_active' : 'arrows__dot_margin-left'}" data-index="${index}"></div>`;
+         sliderDots.innerHTML += dotDiv;
+      })
+
+      sliderDots.querySelectorAll('.arrows__dot').forEach(item => {
+         item.addEventListener("click", () => {
+            const index = +item.dataset.index;
+            moveSlider(index);
+         })
+      });
+   }
+
    function initLeftArrow() {
       leftArrow.addEventListener("click", function () {
-         const curNumber = +getElementByClass(dots, "arrows__dot_active").dataset.index;
-         let nextNumber = curNumber !== 0 ? curNumber - 1 : dots.length - 1;
-         moveEntity(nextNumber);
+         const curNumber = +sliderDots.querySelector('.arrows__dot_active').dataset.index;
+         const nextNumber = curNumber !== 0 ? curNumber - 1 : entities.length - 1;
+         moveSlider(nextNumber);
       })
    }
 
    function initRightArrow() {
       rightArrow.addEventListener("click", function () {
-         const curNumber = +getElementByClass(dots, "arrows__dot_active").dataset.index;
-         let nextNumber = curNumber !== dots.length - 1 ? curNumber + 1 : 0;
-         moveEntity(nextNumber);
+         const curNumber = +sliderDots.querySelector('.arrows__dot_active').dataset.index;
+         const nextNumber = curNumber !== entities.length - 1 ? curNumber + 1 : 0;
+         moveSlider(nextNumber);
       })
-   }
-
-   function initDots() {
-      const dots = document.querySelectorAll(".arrows__dot");
-
-      dots.forEach(item => {
-         item.addEventListener("click", () => {
-            const index = +item.dataset.index;
-
-            moveEntity(index);
-         })
-      });
    }
 
    function initAnchorTags() {
@@ -81,17 +71,16 @@ function initSlider() {
       dots.forEach(item => {
          item.addEventListener("click", () => {
             const index = +item.dataset.index;
-
-            moveEntity(index);
+            moveSlider(index);
          })
       });
    }
 
-   function moveEntity(newIndex) {
-      const curDotElement = getElementByClass(dots, "arrows__dot_active");
+   function moveSlider(newIndex) {
+      const curDotElement = sliderDots.querySelector('.arrows__dot_active');
       curDotElement.classList.remove("arrows__dot_active");
 
-      const newDotElement = document.querySelector(`[data-index="${newIndex}"]`);
+      const newDotElement = sliderDots.querySelector(`[data-index="${newIndex}"]`);
       newDotElement.classList.add("arrows__dot_active");
 
       projectImages.querySelector(".projects__image-active").classList.remove("projects__image-active");
@@ -110,9 +99,9 @@ function initSlider() {
    }
 
    initImages();
+   initDots();
    initLeftArrow();
    initRightArrow();
-   initDots();
    initAnchorTags();
 }
 
